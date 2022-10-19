@@ -233,15 +233,13 @@ resource "aws_iot_topic_rule" "wx_data_ddb_rule" {
   sql         = "SELECT temperaturaBB, celular_id, temperaturaBB.min as temperatura_minima, temperaturaBB.max as temperatura_maxima, FROM 'device/+/data'"
   sql_version = "2016-03-23"
 
-   #timestream {
-   #     database_name = "IOT"
-   #     table_name = "sensorData"
-   #     #dimension_name  = "temperaturaBB"
-   #     #dimension_value = "${temperaturaBB}"  
-   #     role_arn       = "arn:aws:iam::402664395967:role/service-role/timestream_role"
- # }
-
- 
+  # timestream {
+  #      database_name = "IOT"
+  #      table_name = "sensorData"
+  #      #dimension_name  = "temperaturaBB"
+  #      #dimension_value = "${temperaturaBB}"  
+  #      role_arn       = "arn:aws:iam::402664395967:role/service-role/timestream_role"
+  #}
 
  dynamodb {
     table_name       = "wx_data"
