@@ -203,22 +203,26 @@ attribute {
  }
 }
 
-#resource "aws_timestreamwrite_database" "iot_database" {
-#  database_name = "IOT"
-#}
-#
-#
-#resource "aws_timestreamwrite_table" "iot_table" {
-#  database_name = aws_timestreamwrite_database.iot_database.database_name
-#  table_name    = "sensorData"
-#
-#  retention_properties {
-#    magnetic_store_retention_period_in_days = 1
-#    memory_store_retention_period_in_hours  = 8
-#  }
-#}
+#######################
+#Criação do TimeStream#
+#######################
 
-###################################
+resource "aws_timestreamwrite_database" "iot_database" {
+  database_name = "IOT"
+}
+
+
+resource "aws_timestreamwrite_table" "iot_table" {
+  database_name = aws_timestreamwrite_database.iot_database.database_name
+  table_name    = "sensorData"
+
+  retention_properties {
+    magnetic_store_retention_period_in_days = 1
+    memory_store_retention_period_in_hours  = 8
+  }
+}
+
+##################################
 #Rules IOT Core Insert no DynamoDB#
 ###################################
 
