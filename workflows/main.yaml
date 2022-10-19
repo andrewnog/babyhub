@@ -3,7 +3,7 @@ name: Provisioning IOT Core - BabyHub
 on:
   push:
     branches:
-    - main
+    - terraform
 
 jobs:
   deploy:
